@@ -1,0 +1,5 @@
+public interface Operation {
+
+[com.mia.formation.mvc.impl.ModelPropertyImpl@3a782346 (name: Numero), com.mia.formation.mvc.impl.ModelPropertyImpl@2553e6a7 (name: Montant)]
+
+}

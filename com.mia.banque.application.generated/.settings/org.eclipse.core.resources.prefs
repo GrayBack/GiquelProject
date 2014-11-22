@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/mia/banque/model/Banque.java=windows-1252
+encoding//src/com/mia/banque/model/Client.java=windows-1252
+encoding//src/com/mia/banque/model/Compte.java=windows-1252
+encoding//src/com/mia/banque/model/IBanque.java=windows-1252
+encoding//src/com/mia/banque/model/IClient.java=windows-1252
+encoding//src/com/mia/banque/model/ICompte.java=windows-1252
+encoding//src/com/mia/banque/model/IOperation.java=windows-1252
+encoding//src/com/mia/banque/model/Operation.java=windows-1252
+encoding//src/results.txt=windows-1252

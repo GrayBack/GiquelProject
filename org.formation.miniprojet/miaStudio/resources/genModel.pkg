@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="genModel" METAMODEL="MVC" NUMBER="25"
+>
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="9.0.0"/>
+	<SCENARIO NAME="miniProjet" VISIBILITY="public" META_OBJECT="Model" CATEGORY="default">
+		<SERVICE_CALL NAME="current" PACKAGE="System" META_OBJECT="Model"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="genModel" META_OBJECT="Model" CATEGORY="default" NAME="genInterfaceModel" PARAM_COUNT="0"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="genModel" META_OBJECT="Model" CATEGORY="default" NAME="genImplModel" PARAM_COUNT="0"/>
+	</SCENARIO>
+	<SCRIPT NAME="genImplModel" META_OBJECT="Model" CATEGORY="default" FILE_ENCODING="windows-1252" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.model;
+
+import java.util.List;
+import java.util.ArrayList;
+import com.mia.banque.application.model.I[[name]];
+
+public class [[name]] implements com.mia.banque.application.model.I[[name]] {
+[[macroAttribut]]
+[[macroList]]
+[[macroGetterImpl]]
+[[macroSetterImpl]]
+[[macroListGet]]
+[[macroListSet]]
+
+
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="genImplModel$Filename" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="genInterfaceModel" META_OBJECT="Model" CATEGORY="default" FILE_ENCODING="windows-1252" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.model;
+
+import java.util.List;
+
+public interface I[[name]] {
+
+[[macroGetter]]
+[[macroSetter]]
+[[macroListGetInt]]
+[[macroListSetInt]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="genInterfaceModel$Filename" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+I[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="macroAttribut" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(),"templateAttributs");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroGetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "templateGetter");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroGetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "templateGetterImpl");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroList" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "templateList");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroListGet" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "templateListGet");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroListGetInt" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "temlpateListGetInt");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroListSet" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "templateListSet");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroListSetInt" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "templateListSetInt");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroSetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "templateSetter");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroSetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "templateSetterImpl");
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="temlpateListGetInt" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public List<I[[name@¤] get[[name]]s();
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateList" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	private List<com.mia.banque.model.I[[name@¤] list[[name]];
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateListGet" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+public List<com.mia.banque.model.I[[name@¤] get[[name]]s() {
+		if (this.list[[name]] == null) {
+			this.list[[name]] = new ArrayList<com.mia.banque.model.I[[name@¤]();
+		}
+		return this.list[[name]];
+	}
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateListSet" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+public void set[[name]]s(List<com.mia.banque.model.I[[name@¤] s) {
+		this.list[[name]] = s;
+}
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateListSetInt" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]]s(List<I[[name@¤] s);
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateAttributs" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	private String [[toLowerCase]] ;
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateGetter" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public String get[[name]]();
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateGetterImpl" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+public String get[[name]]() {
+		return this.[[toLowerCase]];
+	}
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateSetter" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]](String s);
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="templateSetterImpl" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+public void set[[name]](String s) {
+		this.[[toLowerCase]] = s;
+	}
+
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="toLowerCase" META_OBJECT="ModelProperty" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return current.getName().substring(0,1).toLowerCase()+current.getName().substring(1);
+]]></TEXT>
+	</TEXT_MACRO>
+</PACKAGE>

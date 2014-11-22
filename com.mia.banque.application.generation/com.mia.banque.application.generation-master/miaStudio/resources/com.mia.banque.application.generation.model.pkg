@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="com.mia.banque.application.generation.model" METAMODEL="MVC" NUMBER="24"
+>
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="9.0.0"/>
+	<SCENARIO NAME="ScenarioModel" VISIBILITY="public" META_OBJECT="Model" CATEGORY="default">
+		<SERVICE_CALL NAME="current" PACKAGE="System" META_OBJECT="Model"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="com.mia.banque.application.generation.model" META_OBJECT="Model" CATEGORY="default" NAME="FileTemplateInterfaceGeneration" PARAM_COUNT="0"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="com.mia.banque.application.generation.model" META_OBJECT="Model" CATEGORY="default" NAME="FileTemplateImplementationGeneration" PARAM_COUNT="0"/>
+	</SCENARIO>
+	<SCRIPT NAME="FileTemplateImplementationGeneration" META_OBJECT="Model" CATEGORY="default" FILE_ENCODING="US-ASCII" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.model.impl;
+
+import java.util.List;
+import java.util.ArrayList;
+import com.mia.banque.model.I[[name]];
+
+public class [[name]] implements com.mia.banque.model.I[[name]] {
+
+[[MacroOEVariableDeclaration]]
+[[MacroPropertiesVariableDeclaration]]
+[[MacroOEMethodsGetterImpl]]
+[[MacroOEMethodsSetterImpl]]
+[[MacroPropertiesMethodsGetterImpl]]
+[[MacroPropertiesMethodsSetterImpl]]
+
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="FileTemplateImplementationGeneration$Filename" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+src/com/mia/banque/model/impl/[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="FileTemplateInterfaceGeneration" META_OBJECT="Model" CATEGORY="default" FILE_ENCODING="US-ASCII" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.model;
+
+import java.util.List;
+
+public interface I[[name]] {
+
+[[MacroPropertiesGetter]]
+[[MacroOEGetter]]
+[[MacroPropertiesSetter]]
+[[MacroOESetter]]
+
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="FileTemplateInterfaceGeneration$Filename" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+src/com/mia/banque/model/I[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="MacroOEGetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "TextTemplateVariableGetterDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroOEMethodsGetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "TextTemplateVariableGetterImplementation");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroOEMethodsSetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "TextTemplateVariableSetterImplementation");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroOESetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "TextTemplateVariableSetterDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroOEVariableDeclaration" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getOwnedElements(), "TextTemplateVariableDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroPropertiesGetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "TextTemplateVariableGetterDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroPropertiesMethodsGetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "TextTemplateVariableGetterImplementation");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroPropertiesMethodsSetterImpl" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "TextTemplateVariableSetterImplementation");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroPropertiesSetter" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "TextTemplateVariableSetterDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="MacroPropertiesVariableDeclaration" META_OBJECT="Model" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getProperties(), "TextTemplateVariableDeclaration");
+]]></TEXT>
+	</TEXT_MACRO>
+	<SCRIPT NAME="TextTemplateVariableDeclaration" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	private List<com.mia.banque.model.I[[name@¤] list[[name]];
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableGetterDeclaration" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public List<I[[name@¤] get[[name]]s();
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableGetterImplementation" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public List<com.mia.banque.model.I[[name@¤] get[[name]]s() {
+		if (this.list[[name]] == null) {
+			this.list[[name]] = new ArrayList<com.mia.banque.model.I[[name@¤]();
+		}
+		return this.list[[name]];
+	}
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableSetterDeclaration" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]]s(List<I[[name@¤] newValue);
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableSetterImplementation" META_OBJECT="Model" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]]s(List<com.mia.banque.model.I[[name@¤] newValue) {
+		this.list[[name]] = newValue;
+	}
+	
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableDeclaration" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	private String [[name]];
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableGetterDeclaration" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public String get[[name]]();
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableGetterImplementation" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public String get[[name]]() {
+		return this.[[name]];
+	}
+	
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableSetterDeclaration" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]](String newValue);
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="TextTemplateVariableSetterImplementation" META_OBJECT="ModelProperty" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void set[[name]](String newValue) {
+		this.[[name]] = newValue;
+	}
+	
+
+]]></TEXT>
+	</SCRIPT>
+</PACKAGE>
