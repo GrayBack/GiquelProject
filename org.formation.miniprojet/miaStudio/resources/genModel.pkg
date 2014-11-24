@@ -14,9 +14,9 @@ package com.mia.banque.model;
 
 import java.util.List;
 import java.util.ArrayList;
-import com.mia.banque.application.model.I[[name]];
+import com.mia.banque.model.I[[name]];
 
-public class [[name]] implements com.mia.banque.application.model.I[[name]] {
+public class [[name]] implements I[[name]] {
 [[macroAttribut]]
 [[macroList]]
 [[macroGetterImpl]]

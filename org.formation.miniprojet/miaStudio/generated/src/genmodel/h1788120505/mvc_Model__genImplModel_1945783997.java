@@ -72,12 +72,12 @@ _template_buffer.append("import java.util.List;");
 _template_buffer.append('\n');
 _template_buffer.append("import java.util.ArrayList;");
 _template_buffer.append('\n');
-_template_buffer.append("import com.mia.banque.application.model.I");
+_template_buffer.append("import com.mia.banque.model.I");
 _template_buffer.append(manager.action(current, "name"));_template_buffer.append(";");
 _template_buffer.append('\n');
 _template_buffer.append('\n');
 _template_buffer.append("public class ");
-_template_buffer.append(manager.action(current, "name"));_template_buffer.append(" implements com.mia.banque.application.model.I");
+_template_buffer.append(manager.action(current, "name"));_template_buffer.append(" implements I");
 _template_buffer.append(manager.action(current, "name"));_template_buffer.append(" {");
 _template_buffer.append('\n');
 
