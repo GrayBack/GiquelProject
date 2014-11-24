@@ -6,7 +6,8 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .,
  bin
 Bundle-Activator: org.formation.miniprojet.Activator
-Export-Package: genmodel.h1788120505
+Export-Package: genmodel.h1788120505,
+ genview.hn80603627
 Require-Bundle: org.eclipse.core.runtime,
  com.mia.studio.common;bundle-version="9.0.0",
  com.mia.studio.engine;bundle-version="9.0.0",

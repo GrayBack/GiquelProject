@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="genView" METAMODEL="MVC" NUMBER="4"
+>
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="9.0.0"/>
+	<SCENARIO NAME="scenarioView" VISIBILITY="public" META_OBJECT="View" CATEGORY="default">
+		<SERVICE_CALL NAME="current" PACKAGE="System" META_OBJECT="View"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="genView" META_OBJECT="View" CATEGORY="default" NAME="fileTemplateInterfaceView" PARAM_COUNT="0"/>
+	</SCENARIO>
+	<SCRIPT NAME="templateMethodeInterface" META_OBJECT="Action" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void [[name]]();
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="fileTemplateInterfaceView" META_OBJECT="View" CATEGORY="default" FILE_ENCODING="windows-1252" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.view;
+
+public interface I[[name]] {
+	
+[[macroMethodesInterface]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="fileTemplateInterfaceView$Filename" META_OBJECT="View" CATEGORY="default">
+		<TEXT><![CDATA[
+I[[name]].java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="macroMethodesInterface" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getActions(), "templateMethodeInterface");
+]]></TEXT>
+	</TEXT_MACRO>
+</PACKAGE>
