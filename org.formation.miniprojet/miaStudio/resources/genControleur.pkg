@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PACKAGE SYSTEM "package.dtd">
+<PACKAGE NAME="genControleur" METAMODEL="MVC" NUMBER="5"
+>
+	<fileHeader version="5" toolName="Mia-Generation" toolVersion="9.0.0"/>
+	<SCENARIO NAME="scenarioControleur" VISIBILITY="public" META_OBJECT="View" CATEGORY="default">
+		<SERVICE_CALL NAME="current" PACKAGE="System" META_OBJECT="View"/>
+		<GENERATION_STEP TYPE="FileTemplate" PACKAGE="genControleur" META_OBJECT="View" CATEGORY="default" NAME="fileTemplateInterfaceControleur" PARAM_COUNT="0"/>
+	</SCENARIO>
+	<SCRIPT NAME="textTemplateAction" META_OBJECT="Action" CATEGORY="default">
+		<TEXT><![CDATA[
+	public void [[name]]();
+
+]]></TEXT>
+	</SCRIPT>
+	<SCRIPT NAME="fileTemplateInterfaceControleur" META_OBJECT="View" CATEGORY="default" FILE_ENCODING="windows-1252" VISIBILITY="private">
+		<TEXT><![CDATA[
+package com.mia.banque.controler;
+
+public interface I[[macroNomControleur]]Controleur {
+	
+	public void initView();
+	
+[[macroDeclarationMethode]]
+}
+]]></TEXT>
+		<PROPERTY NAME="Filename"/>
+	</SCRIPT>
+	<SCRIPT NAME="fileTemplateInterfaceControleur$Filename" META_OBJECT="View" CATEGORY="default">
+		<TEXT><![CDATA[
+I[[macroNomControleur]]Controleur.java
+]]></TEXT>
+	</SCRIPT>
+	<TEXT_MACRO NAME="macroDeclarationMethode" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return manager.apply(current.getActions(), "textTemplateAction");
+]]></TEXT>
+	</TEXT_MACRO>
+	<TEXT_MACRO NAME="macroNomControleur" META_OBJECT="View" CATEGORY="default" RETURN_TYPE_KIND="primitive" RETURN_TYPE_NAME="String">
+		<TEXT><![CDATA[
+return current.getModel().getName();
+]]></TEXT>
+	</TEXT_MACRO>
+</PACKAGE>

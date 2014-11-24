@@ -6,4 +6,7 @@
    <extension point="com.mia.studio.generation.core.generation_package">
       <package file="miaStudio/resources/genView.pkg"/>
    </extension>
+   <extension point="com.mia.studio.generation.core.generation_package">
+      <package file="miaStudio/resources/genControleur.pkg"/>
+   </extension>
 </plugin>
